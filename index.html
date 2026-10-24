@@ -34,6 +34,26 @@ const EVENTS = [
     image: "images/2026-10-31-fall-festival.webp",
     cta: "REGISTER TODAY"
   },
+  {
+    title: "Learn French through Bible Stories",
+    date: "Saturdays · 10:00–11:00 AM · Next class: November 14, 2026 (also Nov 28)",
+    location: "Parkland Magnet Middle School, 4610 W Frankfort Dr, Rockville, MD 20853",
+    description: "Learn French in person through engaging Bible stories! Instead of endless vocabulary lists and grammar drills, you'll grow through storytelling, repetition and meaningful communication, with interactive activities and practical conversation that help you understand, remember and speak French naturally. For ages 17+.",
+    url: "https://www.eventbrite.com/e/learn-french-through-bible-stories-tickets-2003227727057?aff=oddtdtcreator",
+    image: "images/learn-french-bible-stories.webp",
+    imageRatio: "1103/530",
+    cta: "SIGN UP NOW"
+  },
+  {
+    title: "Explore Faith: Bible Study on the Book of Romans",
+    date: "Every Thursday · 7:00 PM · Starting October 29, 2026",
+    location: "Online via Zoom",
+    description: "Explore Faith is a study on the Bible, faith and Christian beliefs. Join us online every Thursday evening as we read and discuss the Book of Romans together. Register and we'll email you the Zoom link.",
+    url: "mailto:events@renewaldc.org?subject=The%20Bible%20Book%20of%20Romans%20Bible%20study",
+    image: "images/romans-bible-study.webp",
+    imageRatio: "940/788",
+    cta: "Register & Request a Zoom Link"
+  },
 ];
 
 // ===== "LIFE TOGETHER" PHOTOS =====
@@ -98,7 +118,7 @@ const GALLERY = [
   const esc = s => String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   if (HERO_IMAGE) { const hh=document.querySelector(".hero"); hh.classList.add("has-photo"); hh.style.setProperty("--hero-img", `url("${HERO_IMAGE}")`); }
   document.getElementById("events").innerHTML = EVENTS.map(e => `
-    <a class="card" href="${esc(e.url||'#')}" target="_blank" rel="noopener">
+    <a class="card" href="${esc(e.url||'#')}"${String(e.url||'').startsWith('mailto:') ? '' : ' target="_blank" rel="noopener"'}>
       <div class="card-img" style="${e.imageRatio ? `aspect-ratio:${esc(e.imageRatio)}` : ""}">${e.image ? `<img src="${esc(e.image)}" alt="${esc(e.title)}" loading="lazy">` : `<span>${esc(e.title)}</span>`}</div>
       <div class="card-body">
         <h2>${esc(e.title)}</h2>
